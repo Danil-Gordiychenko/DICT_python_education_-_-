@@ -29,4 +29,4 @@ for i in range(number + 1):
 
 
 print("Congratulations, have a nice day!")
-print("End")
+
