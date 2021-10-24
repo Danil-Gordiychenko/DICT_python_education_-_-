@@ -3,14 +3,14 @@ print('HANGMAN')
 print('The game will be available soon.')
 # Этап 2
 print('Do you want to start the game?')
-print('Start the game press 1; Exit press 2;')
+print('Type "play" to play the game, "exit" to quit:;')
 def restart(replay):
     global start_game
 number3 = input()
 x=0
-while x != 1:
-   x = int(input())
-   if x == 1:
+while x != "play":
+   x = input()
+   if x == "play":
        print('HANGMAN')
        print("Start")
    else:
@@ -40,7 +40,7 @@ else:
 # Этап 4
 import random
 x = random.choice(my_list)
-
+print('')
 print(
     'HANGMAN')
 ln = len(x) - 3
@@ -51,20 +51,32 @@ if a == x:
 else:
     print("You lost!")
 
-# Этап 5
-print('HANGMAN')
+# Этап 5-6
 import random
+attempts = 8
 my_list = ['python', 'java', 'javascript', 'php']
 a = random.choice(my_list)
-ln = len(a)
-print("-"*ln)
-print('Input a letter:')
 y = list(a)
-print(list(a))
-b = input()
-for c in [y]:
- if b in c:
-    print("-" * ln)
+ln = len(a)
+guessed = ['_' for n in y]
+while True:
+    print('')
+    print('HANGMAN')
+    print(''.join(guessed))
     print('Input a letter:')
- else:
-     print("'That letter doesn't appear in the word'")
+    print(list(a))
+    char = input()
+    if char in y:
+         for n, c in enumerate(y):
+             if c == char:
+                guessed[n] = char
+         if "_" not in guessed:
+             print("Thanks for playing! We'll see how well you did in the next stage")
+             break
+
+    else:
+        attempts -= 1
+        print("'That letter doesn't appear in the word'")
+    if attempts == 0:
+        print('You lost')
+        break
