@@ -57,14 +57,12 @@ attempts = 8
 my_list = ['python', 'java', 'javascript', 'php']
 a = random.choice(my_list)
 y = list(a)
-ln = len(a)
 guessed = ['_' for n in y]
 while True:
     print('')
     print('HANGMAN')
     print(''.join(guessed))
     print('Input a letter:')
-    print(list(a))
     char = input()
     if char in y:
          for n, c in enumerate(y):
