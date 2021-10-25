@@ -51,7 +51,7 @@ if a == x:
 else:
     print("You lost!")
 
-# Этап 5-6
+# Этап 5-7
 import random
 attempts = 8
 my_list = ['python', 'java', 'javascript', 'php']
@@ -71,7 +71,9 @@ while True:
          if "_" not in guessed:
              print("Thanks for playing! We'll see how well you did in the next stage")
              break
-
+         elif char in guessed:
+             print("No improvements")
+             attempts -= 1
     else:
         attempts -= 1
         print("'That letter doesn't appear in the word'")
