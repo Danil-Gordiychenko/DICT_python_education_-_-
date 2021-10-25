@@ -22,12 +22,12 @@ Why do we use methods?
 3. To determine the execution time of a program.
 4. To interrupt the execution of a program.
 """)
-def answers(n_answer):
+def answers():
     answer = int(input())
     if answer == 2:
         print("Congratulations, have a nice day!")
     else:
         print("Please, try again.")
-        answers("1")
-answers("2")
+        answers()
+answers()
 
