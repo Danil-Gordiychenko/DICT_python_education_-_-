@@ -4,19 +4,14 @@ print('The game will be available soon.')
 # Этап 2
 print('Do you want to start the game?')
 print('Type "play" to play the game, "exit" to quit:;')
-def restart(replay):
-    global start_game
-number3 = input()
-x=0
-while x != "play":
-   x = input()
-   if x == "play":
-       print('HANGMAN')
-       print("Start")
-   else:
-       print('HANGMAN')
-       print("Please, try again")
-       restart('')
+def answers():
+    answer = input()
+    if answer == "play":
+        print('')
+    else:
+        print("Please, try again.")
+        answers()
+answers()
 print('')
 print('HANGMAN')
 print('Guess the word:')
@@ -51,8 +46,10 @@ if a == x:
 else:
     print("You lost!")
 
-# Этап 5-7
+# Этап 5-8
 import random
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w,' 'x', 'y', 'z']
 attempts = 8
 my_list = ['python', 'java', 'javascript', 'php']
 a = random.choice(my_list)
@@ -68,12 +65,14 @@ while True:
          for n, c in enumerate(y):
              if c == char:
                 guessed[n] = char
+         if char not in alphabet:
+             print('Please enter a lowercase English letter.')
          if "_" not in guessed:
              print("Thanks for playing! We'll see how well you did in the next stage")
              break
          elif char in guessed:
-             print("No improvements")
              attempts -= 1
+             print("No improvements")
     else:
         attempts -= 1
         print("'That letter doesn't appear in the word'")
