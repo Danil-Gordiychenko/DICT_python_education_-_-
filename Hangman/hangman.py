@@ -61,6 +61,7 @@ while True:
     print('Input a letter:')
     char = input()[0]
     lne = len(char)
+    make = ''.join(map(str, guessed))
     if char in y:
          for n, c in enumerate(y):
              if c == char:
@@ -68,10 +69,10 @@ while True:
          if "_" not in guessed:
             print('')
             print('HANGMAN')
-            make = ''.join(map(str, guessed))
-            print(make)
             print("Thanks for playing! We'll see how well you did in the next stage")
             break
+    if len(make) >= 2:
+        print('You should input a single letter.')
     if char not in y:
         attempts -= 1
         print("That letter doesn't appear in the word")
