@@ -45,7 +45,6 @@ if a == x:
     print("You survived!")
 else:
     print("You lost!")
-
 # Этап 5-8
 import random
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -61,19 +60,25 @@ while True:
     print(''.join(guessed))
     print('Input a letter:')
     char = input()[0]
+    lne = len(char)
     if char in y:
          for n, c in enumerate(y):
              if c == char:
                 guessed[n] = char
          if "_" not in guessed:
-             print("Thanks for playing! We'll see how well you did in the next stage")
-             break
-    if char in alphabet:
-        if char not in y:
-            attempts -= 1
-            print("That letter doesn't appear in the word")
-        else:
-            print('Please enter a lowercase English letter.')
+            print('')
+            print('HANGMAN')
+            make = ''.join(map(str, guessed))
+            print(make)
+            print("Thanks for playing! We'll see how well you did in the next stage")
+            break
+    if char not in y:
+        attempts -= 1
+        print("That letter doesn't appear in the word")
+    if char not in alphabet:
+        print('Please enter a lowercase English letter.')
+    if lne >= 2:
+        print('You should input a single letter.')
     if attempts == 0:
         print('You lost')
         break
