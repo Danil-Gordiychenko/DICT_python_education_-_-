@@ -4,14 +4,15 @@ print('The game will be available soon.')
 # Этап 2
 print('Do you want to start the game?')
 print('Type "play" to play the game, "exit" to quit:;')
-def answers():
+while True:
     answer = input()
     if answer == "play":
-        print('')
+        break
+    elif answer == "exit":
+        exit()
     else:
-        print("Please, try again.")
-        answers()
-answers()
+        print('Do you want to start the game?')
+        print('Type "play" to play the game, "exit" to quit:;')
 print('')
 print('HANGMAN')
 print('Guess the word:')
@@ -36,8 +37,7 @@ else:
 import random
 x = random.choice(my_list)
 print('')
-print(
-    'HANGMAN')
+print('HANGMAN')
 ln = len(x) - 3
 print('Guess the word:'+x[0:3]+"-"*ln)
 a = input()
@@ -60,22 +60,20 @@ while True:
     print('HANGMAN')
     print(''.join(guessed))
     print('Input a letter:')
-    char = input()
+    char = input()[0]
     if char in y:
          for n, c in enumerate(y):
              if c == char:
                 guessed[n] = char
-         if char not in alphabet:
-             print('Please enter a lowercase English letter.')
          if "_" not in guessed:
              print("Thanks for playing! We'll see how well you did in the next stage")
              break
-         elif char in guessed:
-             attempts -= 1
-             print("No improvements")
-    else:
-        attempts -= 1
-        print("'That letter doesn't appear in the word'")
+    if char in alphabet:
+        if char not in y:
+            attempts -= 1
+            print("That letter doesn't appear in the word")
+        else:
+            print('Please enter a lowercase English letter.')
     if attempts == 0:
         print('You lost')
         break
