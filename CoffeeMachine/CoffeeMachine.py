@@ -30,7 +30,7 @@ z = b//200
 p = c//50
 y = v//15
 while True:
- if b//200 < a:
+ if b // 200 < a:
   print('No, I can make only', z, 'cups of coffee')
   break
  elif c // 50 < a:
@@ -39,7 +39,7 @@ while True:
  elif v // 15 < a:
   print('No, I can make only', y,  'cups of coffee')
   break
- elif b//200 == a:
+ elif b // 200 == a:
   print('Yes, I can make that amount of coffee')
   break
  elif c // 50 == a:
@@ -47,12 +47,13 @@ while True:
   break
  elif v // 15 == a:
   print('Yes, I can make that amount of coffee')
- elif b//200 > a:
-   print('Yes, I can make that amount of coffee (and even N more than that)')
+ elif b // 200 > a:
+   print('Yes, I can make that amount of coffee (and even', str(b % 200), 'more than that)')
    break
- if c // 50 > a:
-   print('Yes, I can make that amount of coffee (and even N more than that)')
+ elif c // 50 > a:
+   print('Yes, I can make that amount of coffee (and even', str(c % 50), 'more than that)')
    break
- if v // 15 > a:
-   print('Yes, I can make that amount of coffee (and even N more than that)')
+ elif v // 15 > a:
+   print('Yes, I can make that amount of coffee (and even', str(v % 15), 'more than that)')
    break
+
