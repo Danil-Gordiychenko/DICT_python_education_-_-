@@ -9,60 +9,81 @@ while True:
     select = input()
     if select == 'buy':
      while True:
-         print('The coffee machine has:')
-         print(water, 'of water')
-         print(milk, 'of milk')
-         print(beans, 'of coffee beans')
-         print(cups, 'of disposable cups')
-         print(money, 'of money')
          print('What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:')
          drink = int(input())
          if drink == 1:
           n = int(input('Write how many cups of coffee you will need:'))
-          if cups / n < 1 :
+          if cups / n < 1:
               print("i can't make all the cups of coffee")
               break
+          if water // 250 < n:
+              print("i can't make all the cups of coffee")
+              break
+          if beans // 16 < n:
+              print("i can't make all the cups of coffee")
+              break
+          if cups / n >= 1:
+              print('I have enough resources, making you a coffee!')
+          if water // 200 > n:
+              print('I have enough resources, making you a coffee!')
+          if beans // 16 >= n:
+              print('I have enough resources, making you a coffee!')
           water = water - 250 * n
           beans = beans - 16 * n
           money = money + 4 * n
-          print('The coffee machine has:')
-          print(water, 'of water')
-          print(milk, 'of milk')
-          print(beans, 'of coffee beans')
-          print(cups, 'of disposable cups')
-          print(money, 'of money')
-          break
          if drink == 2:
              n = int(input('Write how many cups of coffee you will need:'))
              if cups / n < 1:
                  print("i can't make all the cups of coffee")
                  break
+             if water // 350 < n:
+                 print("i can't make all the cups of coffee")
+                 break
+             if beans // 20 < n:
+                 print("i can't make all the cups of coffee")
+                 break
+             if milk // 75 < n:
+                 print("i can't make all the cups of coffee")
+                 break
+             if cups / n >= 1:
+                 print('I have enough resources, making you a coffee!')
+             if water // 200 > n:
+                 print('I have enough resources, making you a coffee!')
+             if beans // 16 >= n:
+                 print('I have enough resources, making you a coffee!')
+             if milk // 75 >= n:
+                 print('I have enough resources, making you a coffee!')
              water = water - 350 * n
              milk = milk - 75 * n
              beans = beans - 20 * n
              money = money + 6 * n
-             print('The coffee machine has:')
-             print(water, 'of water')
-             print(milk, 'of milk')
-             print(beans, 'of coffee beans')
-             print(cups, 'of disposable cups')
-             print(money, 'of money')
              break
          if drink == 3:
           n = int(input('Write how many cups of coffee you will need:'))
           if cups / n < 1:
               print("i can't make all the cups of coffee")
               break
+          if water // 200 < n:
+              print("i can't make all the cups of coffee")
+              break
+          if beans // 12 < n:
+              print("i can't make all the cups of coffee")
+              break
+          if milk // 100 < n:
+              print("i can't make all the cups of coffee")
+              break
+          if cups / n >= 1:
+              print('I have enough resources, making you a coffee!')
+          if water // 200 > n:
+              print('I have enough resources, making you a coffee!')
+          if beans // 16 >= n:
+              print('I have enough resources, making you a coffee!')
+          if milk // 75 >= n:
+              print('I have enough resources, making you a coffee!')
          water = water - 200 * n
          milk = milk - 100 * n
          beans = beans - 12 * n
          money = money + 6 * n
-         print('The coffee machine has:')
-         print(water, 'of water')
-         print(milk, 'of milk')
-         print(beans, 'of coffee beans')
-         print(cups, 'of disposable cups')
-         print(money, 'of money')
          break
     if select == 'fill':
         while True:
@@ -74,12 +95,6 @@ while True:
          beans = c + beans
          v = int(input('Write how many disposable coffee cups you want to add:'))
          cups = v + cups
-         print('The coffee machine has:')
-         print(water, 'of water')
-         print(milk, 'of milk')
-         print(beans, 'of coffee beans')
-         print(cups, 'of disposable cups')
-         print(money, 'of money')
          break
     if select == 'take':
       while True:
