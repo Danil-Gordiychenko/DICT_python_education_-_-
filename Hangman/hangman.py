@@ -19,14 +19,14 @@ my_list = ['python', 'java', 'javascript', 'php']
 a = random.choice(my_list)
 y = list(a)
 guessed = ['_' for n in y]
+make = ''.join(map(str, guessed))
 while True:
     print('')
     print('HANGMAN')
     print(''.join(guessed))
     print('Input a letter:')
-    char = input()[0]
+    char = input()
     lne = len(char)
-    make = ''.join(map(str, guessed))
     if char in y:
          for n, c in enumerate(y):
              if c == char:
@@ -36,13 +36,15 @@ while True:
             print('HANGMAN')
             print("Thanks for playing! We'll see how well you did in the next stage")
             break
-    if len(make) >= 2:
+    if len(char) >= 2:
         print('You should input a single letter.')
     if char not in y:
         attempts -= 1
         print("That letter doesn't appear in the word")
     if char not in alphabet:
         print('Please enter a lowercase English letter.')
+    if lne >= 2:
+        print('You should input a single letter.')
     if attempts == 0:
         print('You lost')
         break
