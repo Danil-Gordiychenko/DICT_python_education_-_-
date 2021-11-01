@@ -1,11 +1,11 @@
-print('Enter the amount of ingredients:')
-water = int(input('water:'))
-milk = int(input('milk:'))
-beans = int(input('beans:'))
-cups = int(input('cups:'))
-money = int(input('money:'))
+print('CoffeeMachine')
+water = 550
+milk = 540
+beans = 120
+cups = 9
+money = 550
 while True:
-    print('Write action (buy, fill, take):')
+    print('Write action (buy, fill, take, remaining, exit):')
     select = input()
     if select == 'buy':
      while True:
@@ -77,3 +77,13 @@ while True:
          print('I gave you', money)
          money = money * 0
          break
+    if select == 'exit':
+        exit()
+    if select == 'remaining':
+        print('The coffee machine has:')
+        print(water, 'of water')
+        print(milk, 'of milk')
+        print(beans, 'of coffee beans')
+        print(cups, 'of disposable cups')
+        print(money, 'of money')
+        break
