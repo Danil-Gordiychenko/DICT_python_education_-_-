@@ -29,7 +29,7 @@ while play_again:
              if "_" not in guessed:
                  print('')
                  print('HANGMAN')
-                 print("Thanks for playing! We'll see how well you did in the next stage")
+                 print("You won! Thanks for playing! We'll see how well you did in the next stage")
                  print('Do you want to start the game?')
                  print('Type "play" to play the game, "exit" to quit:')
                  break
