@@ -1,7 +1,6 @@
-# Этап 1
+import random
 print('HANGMAN')
 print('The game will be available soon.')
-# Этап 2
 print('Do you want to start the game?')
 print('Type "play" to play the game, "exit" to quit:;')
 while True:
@@ -13,40 +12,6 @@ while True:
     else:
         print('Do you want to start the game?')
         print('Type "play" to play the game, "exit" to quit:;')
-print('')
-print('HANGMAN')
-print('Guess the word:')
-word = input()
-if word == 'python':
-   print('You survived!')
-else:
-   print('You lost!')
-# Этап 3
-print('')
-print('HANGMAN')
-print('Guess the word:')
-import random
-my_list = ['python', 'java', 'javascript', 'php']
-x = random.choice(my_list)
-a = input()
-if a == x:
-    print("You survived!")
-else:
-    print("You lost!")
-# Этап 4
-import random
-x = random.choice(my_list)
-print('')
-print('HANGMAN')
-ln = len(x) - 3
-print('Guess the word:'+x[0:3]+"-"*ln)
-a = input()
-if a == x:
-    print("You survived!")
-else:
-    print("You lost!")
-# Этап 5-8
-import random
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w,' 'x', 'y', 'z']
 attempts = 8
@@ -78,8 +43,6 @@ while True:
         print("That letter doesn't appear in the word")
     if char not in alphabet:
         print('Please enter a lowercase English letter.')
-    if lne >= 2:
-        print('You should input a single letter.')
     if attempts == 0:
         print('You lost')
         break
