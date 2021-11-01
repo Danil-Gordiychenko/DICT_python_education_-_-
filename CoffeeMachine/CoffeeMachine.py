@@ -29,6 +29,14 @@ a = int(input())
 z = b//200
 p = c//50
 y = v//15
+#ost_a_cha1 = b % 200
+#ost_a_cha2 = c % 50
+#ost_a_cha3 = v % 15
+possible = min([
+ b // 200,
+ c // 50,
+ v // 15
+])
 while True:
  if b // 200 < a:
   print('No, I can make only', z, 'cups of coffee')
@@ -47,13 +55,14 @@ while True:
   break
  elif v // 15 == a:
   print('Yes, I can make that amount of coffee')
- elif b // 200 > a:
-   print('Yes, I can make that amount of coffee (and even', str(b % 200), 'more than that)')
-   break
+  break
+ if b // 200 > a:
+  print('Yes, I can make that amount of coffee (and even', possible, 'more than that)')
+  break
  elif c // 50 > a:
-   print('Yes, I can make that amount of coffee (and even', str(c % 50), 'more than that)')
-   break
+  print('Yes, I can make that amount of coffee (and even', possible, 'more than that)')
+  break
  elif v // 15 > a:
-   print('Yes, I can make that amount of coffee (and even', str(v % 15), 'more than that)')
-   break
+  print('Yes, I can make that amount of coffee (and even', possible, 'more than that)')
+  break
 
