@@ -19,6 +19,9 @@ while True:
          drink = int(input())
          if drink == 1:
           n = int(input('Write how many cups of coffee you will need:'))
+          if cups / n < 1 :
+              print("i can't make all the cups of coffee")
+              break
           water = water - 250 * n
           beans = beans - 16 * n
           money = money + 4 * n
@@ -31,6 +34,9 @@ while True:
           break
          if drink == 2:
              n = int(input('Write how many cups of coffee you will need:'))
+             if cups / n < 1:
+                 print("i can't make all the cups of coffee")
+                 break
              water = water - 350 * n
              milk = milk - 75 * n
              beans = beans - 20 * n
@@ -43,11 +49,14 @@ while True:
              print(money, 'of money')
              break
          if drink == 3:
-          z = int(input('Write how many cups of coffee you will need:'))
-         water = water - 200 * z
-         milk = milk - 100 * z
-         beans = beans - 12 * z
-         money = money + 6 * z
+          n = int(input('Write how many cups of coffee you will need:'))
+          if cups / n < 1:
+              print("i can't make all the cups of coffee")
+              break
+         water = water - 200 * n
+         milk = milk - 100 * n
+         beans = beans - 12 * n
+         money = money + 6 * n
          print('The coffee machine has:')
          print(water, 'of water')
          print(milk, 'of milk')
@@ -80,10 +89,11 @@ while True:
     if select == 'exit':
         exit()
     if select == 'remaining':
-        print('The coffee machine has:')
-        print(water, 'of water')
-        print(milk, 'of milk')
-        print(beans, 'of coffee beans')
-        print(cups, 'of disposable cups')
-        print(money, 'of money')
-        break
+        while True:
+            print('The coffee machine has:')
+            print(water, 'of water')
+            print(milk, 'of milk')
+            print(beans, 'of coffee beans')
+            print(cups, 'of disposable cups')
+            print(money, 'of money')
+            break
