@@ -12,26 +12,26 @@ while True:
          print('What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:')
          drink = int(input())
          if drink == 1:
-          n = int(input('Write how many cups of coffee you will need:'))
-          if cups // n < 1:
-              print("i can't make all the cups of coffee")
-              break
-          elif water // 250 < n:
-              print("i can't make all the cups of coffee")
-              break
-          elif beans // 16 < n:
-              print("i can't make all the cups of coffee")
-              break
-          elif cups // n >= 1:
-              print('I have enough resources, making you a coffee!')
-          elif water // 200 > n:
-              print('I have enough resources, making you a coffee!')
-          elif beans // 16 >= n:
-              print('I have enough resources, making you a coffee!')
-          water = water - (250 * n)
-          beans = beans - (16 * n)
-          money = money + (4 * n)
-          cups = cups - n
+             n = int(input('Write how many cups of coffee you will need:'))
+             if cups // n < 1:
+                 print("i can't make all the cups of coffee")
+                 break
+             elif water // 250 < n:
+                 print("i can't make all the cups of coffee")
+                 break
+             elif beans // 16 < n:
+                 print("i can't make all the cups of coffee")
+                 break
+             elif cups // n >= 1:
+                 print('I have enough resources, making you a coffee!')
+             elif water // 200 > n:
+                 print('I have enough resources, making you a coffee!')
+             elif beans // 16 >= n:
+                 print('I have enough resources, making you a coffee!')
+             water = water - (250 * n)
+             beans = beans - (16 * n)
+             money = money + (4 * n)
+             cups = cups - n
          break
          if drink == 2:
              n = int(input('Write how many cups of coffee you will need:'))
@@ -55,40 +55,40 @@ while True:
                  print('I have enough resources, making you a coffee!')
              elif milk // 75 >= n:
                  print('I have enough resources, making you a coffee!')
-                 water = water - 350 * n
-                 milk = milk - 75 * n
-                 beans = beans - 20 * n
+             water = water - 350 * n
+             milk = milk - 75 * n
+             beans = beans - 20 * n
+             money = money + 6 * n
+             cups = cups - n
+         break
+         if drink == 3:
+             n = int(input('Write how many cups of coffee you will need:'))
+             if cups // n < 1:
+                 print("i can't make all the cups of coffee")
+                 break
+             elif water // 200 < n:
+                 print("i can't make all the cups of coffee")
+                 break
+             elif beans // 12 < n:
+                 print("i can't make all the cups of coffee")
+                 break
+             elif milk // 100 < n:
+                 print("i can't make all the cups of coffee")
+                 break
+             elif cups // n >= 1:
+                 print('I have enough resources, making you a coffee!')
+             elif water // 200 > n:
+                 print('I have enough resources, making you a coffee!')
+             elif beans // 16 >= n:
+                 print('I have enough resources, making you a coffee!')
+             elif milk // 75 >= n:
+                 print('I have enough resources, making you a coffee!')
+                 water = water - 200 * n
+                 milk = milk - 100 * n
+                 beans = beans - 12 * n
                  money = money + 6 * n
                  cups = cups - n
-                 break
-         if drink == 3:
-           n = int(input('Write how many cups of coffee you will need:'))
-           if cups // n < 1:
-               print("i can't make all the cups of coffee")
-               break
-           elif water // 200 < n:
-               print("i can't make all the cups of coffee")
-               break
-           elif beans // 12 < n:
-               print("i can't make all the cups of coffee")
-               break
-           elif milk // 100 < n:
-               print("i can't make all the cups of coffee")
-               break
-           elif cups // n >= 1:
-               print('I have enough resources, making you a coffee!')
-           elif water // 200 > n:
-               print('I have enough resources, making you a coffee!')
-           elif beans // 16 >= n:
-               print('I have enough resources, making you a coffee!')
-           elif milk // 75 >= n:
-               print('I have enough resources, making you a coffee!')
-               water = water - 200 * n
-               milk = milk - 100 * n
-               beans = beans - 12 * n
-               money = money + 6 * n
-               cups = cups - n
-               break
+         break
     if select == 'fill':
         while True:
          a = int(input('Write how many ml of water you want to add:'))
