@@ -22,13 +22,10 @@ def buy():
         n = int(input('Write how many cups of coffee you will need:'))
         if cups // n < 1:
             print("Sorry, not enough cups")
-            return
         elif water // 250 < n:
             print("Sorry, not enough water")
-            return
         elif coffee_beans // 16 < n:
             print("Sorry, not enough beans")
-            return
         elif cups // n >= 1:
             print('I have enough resources, making you a coffee!')
         elif water // 250 > n:
@@ -44,16 +41,12 @@ def buy():
         m = int(input('Write how many cups of coffee you will need:'))
         if cups // m < 1:
             print("Sorry, not enough cups")
-            return
         elif water // 350 < m:
             print("Sorry, not enough water")
-            return
         elif coffee_beans // 20 < m:
             print("Sorry, not enough beans")
-            return
         elif milk // 75 < m:
             print("Sorry, not enough milk")
-            return
         elif cups // m >= 1:
             print('I have enough resources, making you a coffee!')
         elif water // 350 > m:
@@ -72,16 +65,12 @@ def buy():
         m = int(input('Write how many cups of coffee you will need:'))
         if cups // m < 1:
             print("Sorry, not enough cups")
-            return
         elif water // 200 < m:
             print("Sorry, not enough water")
-            return
         elif coffee_beans // 12 < m:
             print("Sorry, not enough beans")
-            return
         elif milk // 100 < m:
             print("Sorry, not enough milk")
-            return
         elif cups // m >= 1:
             print('I have enough resources, making you a coffee!')
         elif water // 200 > m:
@@ -99,12 +88,6 @@ def buy():
         return 'cappuccino'
     elif drink == 'back':
         return 'back'
-
-
-def take():
-    global money
-    print("I gave you " + str(money))
-    money = 0
 
 
 def fill():
@@ -236,3 +219,4 @@ while_action = 0
 
 while while_action != 'exit':
     while_action = activity()
+
