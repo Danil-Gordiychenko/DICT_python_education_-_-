@@ -101,6 +101,12 @@ def buy():
         return 'back'
 
 
+def take():
+    global money
+    print("I gave you " + str(money))
+    money = 0
+
+
 def fill():
     global water, milk, coffee_beans, money, cups
     print("Write how many ml of water you want to add:")
@@ -117,31 +123,25 @@ def fill():
     cups += add_cups
 
 
-def take():
-    global money
-    print("I gave you " + str(money))
-    money = 0
-
-
-def action():
+def activity():
     print('\nWrite action (buy, fill, take, remaining, exit):')
-    action_user = str(input())
-    if action_user == 'buy':
+    y = str(input())
+    if y == 'buy':
         print('')
         buy()
         return 'buy'
-    elif action_user == 'fill':
+    elif y == 'fill':
         print('')
         fill()
         return 'fill'
-    elif action_user == 'take':
+    elif y == 'take':
         take()
         return 'take'
-    elif action_user == 'remaining':
+    elif y == 'remaining':
         print('')
         ingredients()
         return 'remaining'
-    elif action_user == 'exit':
+    elif y == 'exit':
         return 'exit'
 
 
@@ -208,25 +208,25 @@ class CoffeeMachine:
         print("I gave you " + str(money))
         money = 0
 
-    def action(self):
+    def activity(self):
         print('\nWrite action (buy, fill, take, remaining, exit):')
-        action_user = str(input())
-        if action_user == 'buy':
+        y = str(input())
+        if y == 'buy':
             print('')
             objects.buy()
             return 'buy'
-        elif action_user == 'fill':
+        elif y == 'fill':
             print('')
             objects.fill()
             return 'fill'
-        elif action_user == 'take':
+        elif y == 'take':
             objects.take()
             return 'take'
-        elif action_user == 'remaining':
+        elif y == 'remaining':
             print('')
             objects.remaining()
             return 'remaining'
-        elif action_user == 'exit':
+        elif y == 'exit':
             return 'exit'
 
 
@@ -235,4 +235,4 @@ objects = CoffeeMachine()
 while_action = 0
 
 while while_action != 'exit':
-    while_action = action()
+    while_action = activity()
