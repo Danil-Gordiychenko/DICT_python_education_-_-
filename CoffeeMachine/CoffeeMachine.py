@@ -14,9 +14,6 @@ def ingredients():
     print(str(money) + ' of money')
 
 
-
-
-
 def buy():
     print('What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back – to main menu:')
     global water, milk, coffee_beans, money, cups
@@ -169,65 +166,20 @@ class CoffeeMachine:
         global water, milk, coffee_beans, money, cups
         answer_user = input()
         if answer_user == str(1):
-            n = int(input('Write how many cups of coffee you will need:'))
-            if cups // n < 1:
-                return "Sorry, not enough cups"
-            elif water // 250 < n:
-                return "Sorry, not enough water"
-            elif coffee_beans // 16 < n:
-                return "Sorry, not enough beans"
-            elif cups // n >= 1:
-                print('I have enough resources, making you a coffee!')
-            elif water // 250 > n:
-                print('I have enough resources, making you a coffee!')
-            elif coffee_beans // 16 >= n:
-                print('I have enough resources, making you a coffee!')
+            buy()
             self.water -= 250
             self.coffee_beans -= 16
             self.cups -= 1
             self.money += 4
         elif answer_user == str(2):
-            m = int(input('Write how many cups of coffee you will need:'))
-            if cups // m < 1:
-                return "Sorry, not enough cups"
-            elif water // 350 < m:
-                return "Sorry, not enough water"
-            elif coffee_beans // 20 < m:
-                return "Sorry, not enough beans"
-            elif milk // 75 < m:
-                return "Sorry, not enough milk"
-            elif cups // m >= 1:
-                print('I have enough resources, making you a coffee!')
-            elif water // 350 > m:
-                print('I have enough resources, making you a coffee!')
-            elif coffee_beans // 16 >= m:
-                print('I have enough resources, making you a coffee!')
-            elif milk // 75 >= m:
-                print('I have enough resources, making you a coffee!')
+            buy()
             self.water -= 350
             self.milk -= 75
             self.coffee_beans -= 20
             self.cups -= 1
             self.money += 7
         elif answer_user == str(3):
-            m = int(input('Write how many cups of coffee you will need:'))
-            if cups // m < 1:
-                return "Sorry, not enough cups"
-            elif water // 200 < m:
-                return "Sorry, not enough water"
-            elif coffee_beans // 12 < m:
-                return "Sorry, not enough beans"
-            elif milk // 100 < m:
-                return "Sorry, not enough milk"
-            elif cups // m >= 1:
-                print('I have enough resources, making you a coffee!')
-            elif water // 200 > m:
-                print('I have enough resources, making you a coffee!')
-            elif coffee_beans // 12 >= m:
-                print('I have enough resources, making you a coffee!')
-            elif milk // 100 >= m:
-                print('I have enough resources, making you a coffee!')
-                print('I have enough resources, making you a coffee!')
+            buy()
             self.water -= 200
             self.milk -= 100
             self.coffee_beans -= 12
