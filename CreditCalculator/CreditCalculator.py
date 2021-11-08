@@ -1,24 +1,49 @@
+import math
 def CreditCalculator():
-    principal = int(input('Enter the loan principal:\n'))
     print("What do you want to calculate?")
-    print("type 'm' – for number of monthly payments,")
+    print('type "n" for number of monthly payments,')
+    print('type "a" for annuity monthly payment amount,')
     print("type 'p' – for the monthly payment:")
     x = input()
-    if x == 'm':
-        n = int(input('Enter the monthly payment:\n'))
-        y = principal / n
-        z = round(y)
-        print('It will take', z, 'months to repay the loan')
+    if x == 'a':
+        principal = int(input("Enter the loan principal:\n"))
+        p = principal
+        periods = int(input("Enter the number of periods:\n"))
+        n = periods
+        interest = int(input("Enter the loan interest:\n"))
+        i = interest / 1200
+        z = (i * ((1 + i) ** n))
+        y = (1 + i) ** n
+        a = (p * z) / (y - 1)
+        d = math.ceil(a)
+        print("Your monthly payment =", d, "!")
+    elif x == 'n':
+        principal = int(input("Enter the loan principal:\n"))
+        p = principal
+        payment = int(input("Enter the monthly payment:\n"))
+        a = payment
+        interest = int(input("Enter the loan interest:\n"))
+        i = interest / 1200
+        x = a/(a-(i*p))
+        degree = math.log(x, (1+i))
+        o = math.ceil(degree)
+        year = o / 12
+        round_up = round(year, (1))
+        r = str(round_up)
+        y = list(r)
+        print("It will take", y[0], "years and", y[2], "months to repay this loan!")
     elif x == 'p':
-        months = int(input('Enter the number of months:\n'))
-        payment = principal / months
-        if principal % months == 0:
-            payment = principal // months
-            print('Your monthly payment =', payment)
-        elif payment != int:
-            z = round(payment)
-            last_payment = principal - ((months - 1) * payment)
-            y = round(last_payment)
-            print('Your monthly payment =', z, 'and the last payment =', y)
+        a = float(input("Enter the annuity payment:\n"))
+        n = float(input("Enter the monthly payment:\n"))
+        interest = float(input("Enter the loan interest:\n"))
+        i = interest / 1200
+        b = i*(1+i)**n
+        c = (1+i)**n - 1
+        d = b/c
+        p = a/d
+        z = round(p)
+        print("Your monthly payment =", z, "!")
+    else:
+        print("Pleas try again")
 
 CreditCalculator()
