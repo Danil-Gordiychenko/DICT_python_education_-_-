@@ -47,6 +47,7 @@ try:
                     r = str(round_up)
                     y = list(r)
                     print("It will take", y[0], "years and", y[2], "months to repay this loan!")
+                    print("Overpayment =", a * o -p)
                 else:
                     print("Incorrect Parameters")
             else:
