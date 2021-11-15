@@ -60,12 +60,15 @@ try:
                 if interest[:11] == '--interest=':
                     interest = float(interest[11:])
                     i = interest / 1200
+                    num = pow(1 + i, n)
                     b = i * (1 + i) ** n
                     c = (1 + i) ** n - 1
                     d = b / c
                     x = p / d
                     z = round(x)
-                    print("Your monthly payment =", z, "!")
+                    result_p = math.floor(float(p / ((i * num) / (num - 1))))
+                    print("Your loan principal =", z, "!")
+                    print('Overpayment =', p * n - result_p)
                 else:
                     print("Incorrect Parameters")
             else:
