@@ -13,7 +13,7 @@ while True:
             buy[name] = 0
         number = int(input('Enter the total amount:\n'))
         li = number / y
-        for a in x:
-            buy[name] = li
+        for i in x:
+            buy = {name: li for name in buy}
         print(buy)
         break
