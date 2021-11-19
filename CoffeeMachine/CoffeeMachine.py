@@ -96,6 +96,7 @@ class CoffeeMachine:
         self.cups -= 1
         self.money += 6
 
+
 objects = CoffeeMachine()
 
 while True:
@@ -116,9 +117,11 @@ while True:
 
     if action == 'fill':
         objects.fill()
-    if action == 'take':
+    elif action == 'take':
         objects.take()
-    if action == 'remaining':
+    elif action == 'remaining':
         objects.remaining()
-    if action == 'exit':
+    elif action == 'exit':
         objects.exit()
+    else:
+        print("Try again")
