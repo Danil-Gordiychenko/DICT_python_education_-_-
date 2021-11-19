@@ -1,8 +1,12 @@
 import random
+
+
 y = int(input('Enter the number of friends joining (including you):\n'))
 x = range(y)
 buy = {}
 name = 0
+
+
 while True:
     if y <= 0:
         print('No one is joining for the party\n')
