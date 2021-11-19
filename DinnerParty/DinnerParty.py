@@ -20,12 +20,13 @@ while True:
             question = input('Do you want to use the "Who is lucky?" feature? Write Yes/No:\n')
             if question == 'Yes':
                 v = random.choice(list(buy.keys()))
-                print(v, 'is the lucky one!')
+                print(v.title(), 'is the lucky one!')
                 li = number / (y-1)
                 g = round(li, 2)
                 buy = {name: g for name in buy}
                 buy[v] = 0
                 print(buy)
+                break
             else:
                 print('No one is going to be lucky')
                 buy = {name: g for name in buy}
