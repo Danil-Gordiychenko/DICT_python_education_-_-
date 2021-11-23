@@ -26,28 +26,28 @@ play()
 def game_code():
     global victory
     if list_new[0] == list_new[1] == list_new[2] != '_':
-        print(list_new[0], 'win')
+        print(list_new[0], 'wins')
         victory += 1
     elif list_new[3] == list_new[4] == list_new[5] != '_':
-        print(list_new[3], 'win')
+        print(list_new[3], 'wins')
         victory += 1
     elif list_new[6] == list_new[7] == list_new[8] != '_':
-        print(list_new[6], 'win')
+        print(list_new[6], 'wins')
         victory += 1
     elif list_new[0] == list_new[3] == list_new[6] != '_':
-        print(list_new[0], 'win')
+        print(list_new[0], 'wins')
         victory += 1
     elif list_new[1] == list_new[4] == list_new[7] != '_':
-        print(list_new[1], 'win')
+        print(list_new[1], 'wins')
         victory += 1
     elif list_new[2] == list_new[5] == list_new[8] != '_':
-        print(list_new[2], 'win')
+        print(list_new[2], 'wins')
         victory += 1
     elif list_new[0] == list_new[4] == list_new[8] != '_':
-        print(list_new[0], 'win')
+        print(list_new[0], 'wins')
         victory += 1
     elif list_new[2] == list_new[4] == list_new[6] != '_':
-        print(list_new[2], 'win')
+        print(list_new[2], 'wins')
         victory += 1
     else:
         print()
@@ -56,7 +56,16 @@ def game_code():
 game_code()
 
 
+def rule():
+    return
+
+
+rule()
+
+
 while True:
+    if victory >= 1:
+        break
     z = input('Enter the coordinates:')
     if variable == "X":
         variable = "O"
@@ -81,7 +90,8 @@ while True:
     elif z == '3 3':
         list_new[8] = variable
         print()
-    game_code()
     play()
+    game_code()
+
 
 
