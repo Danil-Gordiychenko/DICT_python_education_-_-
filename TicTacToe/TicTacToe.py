@@ -56,42 +56,45 @@ def game_code():
 game_code()
 
 
-def rule():
-    return
-
-
-rule()
-
-
 while True:
-    if victory >= 1:
-        break
-    z = input('Enter the coordinates:')
-    if variable == "X":
-        variable = "O"
-    else:
-        variable = "X"
-    if z == '1 1':
-        list_new[0] = variable
-    elif z == '1 2':
-        list_new[1] = variable
-    elif z == '1 3':
-        list_new[2] = variable
-    elif z == '2 1':
-        list_new[3] = variable
-    elif z == '2 2':
-        list_new[4] = variable
-    elif z == '2 3':
-        list_new[5] = variable
-    elif z == '3 1':
-        list_new[6] = variable
-    elif z == '3 2':
-        list_new[7] = variable
-    elif z == '3 3':
-        list_new[8] = variable
-        print()
-    play()
-    game_code()
-
-
+    try:
+        z = input('Enter the coordinates:')
+        s = list(z)
+        xi = int(z[0])
+        li = int(z[2])
+        if xi or li == int:
+            if 0 < xi <= 3 and 0 < li <= 3:
+                if variable == "X":
+                    variable = "O"
+                else:
+                    variable = "X"
+                if z == '1 1':
+                    list_new[0] = variable
+                elif z == '1 2':
+                    list_new[1] = variable
+                elif z == '1 3':
+                    list_new[2] = variable
+                elif z == '2 1':
+                    list_new[3] = variable
+                elif z == '2 2':
+                    list_new[4] = variable
+                elif z == '2 3':
+                    list_new[5] = variable
+                elif z == '3 1':
+                    list_new[6] = variable
+                elif z == '3 2':
+                    list_new[7] = variable
+                elif z == '3 3':
+                    list_new[8] = variable
+                if victory >= 1:
+                    break
+                play()
+                game_code()
+            else:
+                print('Coordinates should be from 1 to 3!')
+        elif xi or li != int:
+            print('You should enter numbers!')
+        continue
+    except ValueError:
+        print('You should enter numbers!')
 
