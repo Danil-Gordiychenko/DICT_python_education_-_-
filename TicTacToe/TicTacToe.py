@@ -121,8 +121,6 @@ while True:
                 game_code()
             else:
                 print('Coordinates should be from 1 to 3!')
-        elif xi or li != int:
-            print('You should enter numbers!')
         if victory >= 1:
             break
     except ValueError:
