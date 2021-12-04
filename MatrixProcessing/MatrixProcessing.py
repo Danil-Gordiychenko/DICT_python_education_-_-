@@ -54,6 +54,14 @@ while True:
                 print()
 
         # Если 3
+        if menu_choice == 3:
+            continue
+
+        # Если 4
+        if menu_choice == 4:
+            continue
+
+        # Если 5
         if menu_choice == 5:
             size = input('Enter size of first matrix:').split()
             first_variable = int(size[0])
