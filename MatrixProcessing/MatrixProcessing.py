@@ -65,18 +65,18 @@ while True:
             print('Enter second matrix:')
             second_list = [list(map(float, input().split())) for x in range(second_variable)]
             if first_variable1 == second_variable or second_variable1 == first_variable:
-                print('The operation cannot be performed.')
                 answer = 0
                 print("The result is: ")
                 for i in range(len(first_list)):
                     for j in range(len(second_list[0])):
                         for k in range(len(second_list)):
-                            answer += int(first_list[i][k]) * int(second_list[k][j])
+                            answer += (first_list[i][k]) * (second_list[k][j])
                         print(answer, end=" ")
                         answer = 0
                     print("")
             else:
-                print("ERROR")
+                print('The operation cannot be performed.')
+            break
 
         # Если 4
         if menu_choice == 4:
