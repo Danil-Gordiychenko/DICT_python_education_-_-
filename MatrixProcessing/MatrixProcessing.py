@@ -15,21 +15,18 @@ while True:
 
         # если 1
         if menu_choice == 1:
-
             # Первая матрица
             size = input('Enter size of first matrix:').split()
             first_variable = int(size[0])
             first_variable1 = int(size[1])
             print('Enter first matrix:')
             first_list = [list(map(float, input().split()))for x in range(first_variable)]
-
             # Вторая матрица
             size = input('Enter size of second matrix:').split()
             second_variable = int(size[0])
             second_variable1 = int(size[1])
             print('Enter second matrix:')
             second_list = [list(map(float, input().split()))for x in range(second_variable)]
-
             # Проверка
             if first_variable1 != second_variable1 and first_variable != second_variable:
                 print('ERROR')
@@ -55,7 +52,31 @@ while True:
 
         # Если 3
         if menu_choice == 3:
-            continue
+            # Первая матрица
+            size = input('Enter size of first matrix:').split()
+            first_variable = int(size[0])
+            first_variable1 = int(size[1])
+            print('Enter first matrix:')
+            first_list = [list(map(float, input().split())) for x in range(first_variable)]
+            # Вторая матрица
+            size = input('Enter size of second matrix:').split()
+            second_variable = int(size[0])
+            second_variable1 = int(size[1])
+            print('Enter second matrix:')
+            second_list = [list(map(float, input().split())) for x in range(second_variable)]
+            if first_variable1 == second_variable or second_variable1 == first_variable:
+                print('The operation cannot be performed.')
+                answer = 0
+                print("The result is: ")
+                for i in range(len(first_list)):
+                    for j in range(len(second_list[0])):
+                        for k in range(len(second_list)):
+                            answer += int(first_list[i][k]) * int(second_list[k][j])
+                        print(answer, end=" ")
+                        answer = 0
+                    print("")
+            else:
+                print("ERROR")
 
         # Если 4
         if menu_choice == 4:
@@ -63,7 +84,7 @@ while True:
 
         # Если 5
         if menu_choice == 5:
-            size = input('Enter size of first matrix:').split()
+            size = input('Enter size of matrix:').split()
             first_variable = int(size[0])
             first_variable1 = int(size[1])
             print('Enter first matrix:')
@@ -97,7 +118,7 @@ while True:
             print("\n")
             print('The result is:', det(a))
 
-        # Если
+        # Если 0
         if menu_choice == 0:
             sys.exit(0)
 
