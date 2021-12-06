@@ -20,9 +20,6 @@ def play():
     print("---------")
 
 
-play()
-
-
 def game_code():
     global victory
     if list_new[0] == list_new[1] == list_new[2] != '_':
@@ -53,79 +50,38 @@ def game_code():
         print()
 
 
-game_code()
+def new(isIncorrect, list_new, variable, index):
+    if list_new[index] != 'X' and list_new[index] != 'O':
+        list_new[index] = variable
+    else:
+        isIncorrect = True
+        print('This cell is occupied! Choose another one!')
+    return isIncorrect, list_new
 
-while True:
-    try:
-        z = input('Enter the coordinates:')
-        s = list(z)
-        xi = int(z[0])
-        li = int(z[2])
-        isIncorrect = False
-        if xi or li == int:
-            if 0 < xi <= 3 and 0 < li <= 3:
-                if z == '1 1':
-                    if list_new[0] != 'X' and list_new[0] != 'O':
-                        list_new[0] = variable
-                    else:
-                        isIncorrect = True
-                        print('This cell is occupied! Choose another one!')
-                elif z == '1 2':
-                    if list_new[1] != 'X' and list_new[1] != 'O':
-                        list_new[1] = variable
-                    else:
-                        isIncorrect = True
-                        print('This cell is occupied! Choose another one!')
-                elif z == '1 3':
-                    if list_new[2] != 'X' and list_new[2] != 'O':
-                        list_new[2] = variable
-                    else:
-                        isIncorrect = True
-                        print('This cell is occupied! Choose another one!')
-                elif z == '2 1':
-                    if list_new[3] != 'X' and list_new[3] != 'O':
-                        list_new[3] = variable
-                    else:
-                        isIncorrect = True
-                        print('This cell is occupied! Choose another one!')
-                elif z == '2 2':
-                    if list_new[4] != 'X' and list_new[4] != 'O':
-                        list_new[4] = variable
-                    else:
-                        isIncorrect = True
-                        print('This cell is occupied! Choose another one!')
-                elif z == '2 3':
-                    if list_new[5] != 'X' and list_new[5] != 'O':
-                        list_new[5] = variable
-                    else:
-                        isIncorrect = True
-                        print('This cell is occupied! Choose another one!')
-                elif z == '3 1':
-                    if list_new[6] != 'X' and list_new[6] != 'O':
-                        list_new[6] = variable
-                    else:
-                        isIncorrect = True
-                        print('This cell is occupied! Choose another one!')
-                elif z == '3 2':
-                    if list_new[7] != 'X' and list_new[7] != 'O':
-                        list_new[7] = variable
-                    else:
-                        isIncorrect = True
-                        print('This cell is occupied! Choose another one!')
-                elif z == '3 3':
-                    if list_new[8] != 'X' and list_new[8] != 'O':
-                        list_new[8] = variable
-                    else:
-                        isIncorrect = True
-                        print('This cell is occupied! Choose another one!')
 
-                if not isIncorrect:
-                    variable = "O" if variable == "X" else "X"
-                play()
-                game_code()
-            else:
-                print('Coordinates should be from 1 to 3!')
-        if victory >= 1:
-            break
-    except ValueError:
-        print('You should enter numbers!')
+if __name__=="__main__":
+    play()
+    game_code()
+    while True:
+        try:
+            z = input('Enter the coordinates:')
+            s = list(z)
+            xi = int(z[0])
+            li = int(z[2])
+            isIncorrect = False
+            list_of_index = ['1 1', '1 2', '1 3', '2 1', '2 2', '2 3', '3 1', '3 2', '3 3']
+            if xi or li == int:
+                if 0 < xi <= 3 and 0 < li <= 3:
+                    for index, i in enumerate(list_of_index):
+                        if z == i:
+                            isIncorrect, list_new = new(isIncorrect, list_new, variable, index)
+                    if not isIncorrect:
+                        variable = "O" if variable == "X" else "X"
+                    play()
+                    game_code()
+                else:
+                    print('Coordinates should be from 1 to 3!')
+            if victory >= 1:
+                break
+        except ValueError:
+            print('You should enter numbers!')
