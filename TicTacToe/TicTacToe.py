@@ -22,25 +22,18 @@ def play():
 
 def game_code():
     global victory
-    if list_new[0] == list_new[1] == list_new[2] != '_':
-        print(list_new[0], 'wins')
-        victory += 1
-    elif list_new[3] == list_new[4] == list_new[5] != '_':
-        print(list_new[3], 'wins')
-        victory += 1
-    elif list_new[6] == list_new[7] == list_new[8] != '_':
-        print(list_new[6], 'wins')
-        victory += 1
-    elif list_new[0] == list_new[3] == list_new[6] != '_':
-        print(list_new[0], 'wins')
-        victory += 1
-    elif list_new[1] == list_new[4] == list_new[7] != '_':
-        print(list_new[1], 'wins')
-        victory += 1
-    elif list_new[2] == list_new[5] == list_new[8] != '_':
-        print(list_new[2], 'wins')
-        victory += 1
-    elif list_new[0] == list_new[4] == list_new[8] != '_':
+    # horizontal
+    for idx in range(0, 9, 3):
+        if list_new[idx] == list_new[idx + 1] == list_new[idx + 2] != '_':
+            print(list_new[0], 'wins')
+            victory += 1
+    # vertical
+    for idx in range(0, 3):
+        if list_new[idx] == list_new[idx + 3] == list_new[idx + 6] != '_':
+            print(list_new[0], 'wins')
+            victory += 1
+    # diagonal
+    if list_new[0] == list_new[4] == list_new[8] != '_':
         print(list_new[0], 'wins')
         victory += 1
     elif list_new[2] == list_new[4] == list_new[6] != '_':
@@ -59,7 +52,7 @@ def new(isIncorrect, list_new, variable, index):
     return isIncorrect, list_new
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     play()
     game_code()
     while True:
