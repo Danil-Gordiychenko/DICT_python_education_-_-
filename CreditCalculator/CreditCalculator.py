@@ -1,84 +1,56 @@
 import math
-import sys
-try:
-    args = sys.argv
-    type = args[1]
-    if type == "--type=diff":
-        p = args[2]
-        if p[:12] == "--principal=":
-            p = int(p[12:])
-            n = args[3]
-            if n[:10] == "--periods=":
-                n = int(n[10:])
-                i_percent = args[4]
-                if i_percent[:11] == "--interest=":
-                    i_percent = float(i_percent[11:])
-                    i = i_percent / (12 * 100)
-                    m = 1
-                    D = 0
-                    while m <= n:
-                        d = (p/n) + (i*(p - (p*(m-1)/n)))
-                        print("Month {}: paid out {}".format(m, math.ceil(d)))
-                        m += 1
-                        D += math.ceil(d)
-                    print("Overpayment = {}".format(D - p))
-                else:
-                    print("Incorrect Parameters")
-            else:
-                print("Incorrect Parameters")
-        else:
-            print("Incorrect Parameters")
-    elif type == '--type=annuity':
-        p = args[2]
-        if p[:12] == '--principal=':
-            p = int(p[12:])
-            a = args[3]
-            if a[:10] == '--payment=':
-                a = int(a[10:])
-                interest = args[4]
-                if interest[:11] == '--interest=':
-                    interest = float(interest[11:])
-                    i = interest / 1200
-                    x = a / (a - (i * p))
-                    degree = math.log(x, (1 + i))
-                    o = math.ceil(degree)
-                    year = o / 12
-                    round_up = round(year, (1))
-                    r = str(round_up)
-                    y = list(r)
-                    print("It will take", y[0], "years and", y[2], "months to repay this loan!")
-                    print("Overpayment =", a * o -p)
-                else:
-                    print("Incorrect Parameters")
-            else:
-                print("Incorrect Parameters")
-        elif p[:10] == '--payment=':
-            p = float(p[10:])
-            n = args[3]
-            if n[:10] == '--periods=':
-                n = int(n[10:])
-                interest = args[4]
-                if interest[:11] == '--interest=':
-                    interest = float(interest[11:])
-                    i = interest / 1200
-                    num = pow(1 + i, n)
-                    b = i * (1 + i) ** n
-                    c = (1 + i) ** n - 1
-                    d = b / c
-                    x = p / d
-                    z = round(x)
-                    result_p = math.floor(float(p / ((i * num) / (num - 1))))
-                    print("Your loan principal =", z, "!")
-                    print('Overpayment =', p * n - result_p)
-                else:
-                    print("Incorrect Parameters")
-            else:
-                print("Incorrect Parameters")
-        else:
-            print("Incorrect Parameters")
-    else:
-        print("Incorrect Parameters")
+import argparse
 
 
-except Exception:
-    print("Incorrect Parameters")
+parser = argparse.ArgumentParser(description="Credit Calculator Project")
+parser.add_argument('--type')
+parser.add_argument('--payment', type=int)
+parser.add_argument('--principal', type=int)
+parser.add_argument('--periods', type=int)
+parser.add_argument('--interest', type=float)
+args = parser.parse_args()
+
+
+if args.type == "diff" and args.principal > 0 and args.periods > 0 and args.interest > 0:
+    i = args.interest / (12 * 100)
+    m = 1
+    D = 0
+    while m <= args.periods:
+        d = (args.principal / args.periods) + (i * (args.principal - (args.principal * (m - 1) / args.periods)))
+        print("Month {}: paid out {}".format(m, math.ceil(d)))
+        m += 1
+        D += math.ceil(d)
+    print("Overpayment = {}".format(D - args.principal))
+
+elif args.type == "annuity" and args.principal is not None and args.payment is not None and args.interest is not None:
+    i = args.interest / (12 * 100)
+    x = args.payment / (args.payment - (i * args.principal))
+    degree = math.log(x, (1 + i))
+    ceil = math.ceil(degree)
+    year = ceil / 12
+    round_up = str(round(year, (1)))
+    y = list(round_up)
+    print("It will take", y[0], "years and", y[2], "months to repay this loan!")
+    print(f'Overpayment = {args.payment * ceil - args.principal}')
+
+elif args.type == 'annuity' and args.periods is not None and args.payment is not None and args.interest is not None:
+    i = args.interest / (12 * 100)
+    num = pow(1 + i, args.periods)
+    d = (i * (1 + i) ** args.periods) / ((1 + i) ** args.periods - 1)
+    x = round(args.payment / d)
+    result_p = math.floor(float(args.payment / ((i * num) / (num - 1))))
+    print("Your loan principal =", x, "!")
+    print(f'Overpayment = {args.payment * args.periods - result_p}')
+
+elif args.type == 'annuity' and args.periods is not None and args.principal is not None and args.interest is not None:
+    i = args.interest / (12 * 100)
+    value = (i * math.pow(1 + i, args.periods)) / (
+                math.pow(1 + i, args.periods) - 1)
+    monthly_payment = args.principal * value
+    overpayment = abs(args.periods * math.ceil(monthly_payment) - args.principal)
+    monthly_payment = math.ceil(monthly_payment)
+    print(f'Your annuity payment = {monthly_payment}!')
+    print(f'Overpayment = {overpayment}')
+
+else:
+    print('Incorrect Parameters')
