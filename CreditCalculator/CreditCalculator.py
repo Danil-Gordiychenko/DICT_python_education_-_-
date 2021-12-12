@@ -51,3 +51,6 @@ elif args.type == 'annuity' and args.periods is not None and args.principal is n
     monthly_payment = math.ceil(monthly_payment)
     print(f'Your annuity payment = {monthly_payment}!')
     print(f'Overpayment = {overpayment}')
+
+else:
+    print('Incorrect Parameters')
