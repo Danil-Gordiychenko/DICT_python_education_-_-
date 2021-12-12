@@ -12,7 +12,6 @@ while True:
     print('0. Exit')
     while True:
         menu_choice = int(input('Your choice:'))
-
         # если 1
         if menu_choice == 1:
             # Первая матрица
@@ -121,4 +120,3 @@ while True:
         # Если 0
         if menu_choice == 0:
             sys.exit(0)
-
