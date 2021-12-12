@@ -28,9 +28,8 @@ elif args.type == "annuity" and args.principal is not None and args.payment is n
     degree = math.log(x, (1 + i))
     ceil = math.ceil(degree)
     year = ceil / 12
-    round_up = str(round(year, (1)))
-    y = list(round_up)
-    print("It will take", y[0], "years and", y[2], "months to repay this loan!")
+    round_up = list(str(round(year, (1))))
+    print("It will take", round_up[0], "years and", round_up[2], "months to repay this loan!")
     print(f'Overpayment = {args.payment * ceil - args.principal}')
 
 elif args.type == 'annuity' and args.periods is not None and args.payment is not None and args.interest is not None:
@@ -38,9 +37,9 @@ elif args.type == 'annuity' and args.periods is not None and args.payment is not
     num = pow(1 + i, args.periods)
     d = (i * (1 + i) ** args.periods) / ((1 + i) ** args.periods - 1)
     x = round(args.payment / d)
-    result_p = math.floor(float(args.payment / ((i * num) / (num - 1))))
+    result_payment = math.floor(float(args.payment / ((i * num) / (num - 1))))
     print("Your loan principal =", x, "!")
-    print(f'Overpayment = {args.payment * args.periods - result_p}')
+    print(f'Overpayment = {args.payment * args.periods - result_payment}')
 
 elif args.type == 'annuity' and args.periods is not None and args.principal is not None and args.interest is not None:
     i = args.interest / (12 * 100)
