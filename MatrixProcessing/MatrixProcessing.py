@@ -98,7 +98,7 @@ def trans_4():
 
 def choice_5():
     print('Enter size of matrix:')
-    a = matrix_input()
+    z = matrix_input()
 
     def minor(a, i, j):
         m = copy.deepcopy(a)
@@ -121,12 +121,12 @@ def choice_5():
             signum *= -1
         return determinant
 
-    print('The result is:', det(a))
+    print('The result is:', det(z))
 
 
 def choice_6():
     print('Enter size of matrix:')
-    a = matrix_input()
+    z = matrix_input()
 
     def minor(a, i, j):
         m = copy.deepcopy(a)
@@ -149,18 +149,18 @@ def choice_6():
             signum *= -1
         return determinant
 
-    determinant = det(a)
+    determinant = det(z)
     if determinant != 0:
-        if len(a) == 2:
-            ntr_1 = [int(a[1][1]) / determinant, -1 * int(a[0][1]) / determinant]
-            ntr_2 = [-1 * int(a[1][0]) / determinant, int(a[0][0]) / determinant]
+        if len(z) == 2:
+            ntr_1 = [int(z[1][1]) / determinant, -1 * int(z[0][1]) / determinant]
+            ntr_2 = [-1 * int(z[1][0]) / determinant, int(z[0][0]) / determinant]
             return ntr_1, ntr_2
         else:
             cofactors = []
-            for k in range(len(a)):
+            for k in range(len(z)):
                 cofactor_row = []
-                for c in range(len(a[k])):
-                    mino = minor(a, k, c)
+                for c in range(len(z[k])):
+                    mino = minor(z, k, c)
                     cofactor_row.append(((-1) ** (k + c)) * det(mino))
                 cofactors.append(cofactor_row)
             cofactors = [[cofactors[j][i] for j in range(len(cofactors))] for i in range(len(cofactors[0]))]
@@ -208,9 +208,9 @@ while True:
             answer_2 = choice_6()
             if answer_2 is not None:
                 print("The result is: ")
-                for st in range(len(answer_2)):
-                    for st_2 in answer_2[st]:
-                        print(round(st_2, 2), end=' ')
+                for s in range(len(answer_2)):
+                    for s_2 in answer_2[s]:
+                        print(round(s_2, 2), end=' ')
                     print('')
         elif menu_choice == '0':
             sys.exit(0)
