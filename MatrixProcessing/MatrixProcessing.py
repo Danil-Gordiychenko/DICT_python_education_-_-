@@ -124,6 +124,54 @@ def choice_5():
     print('The result is:', det(a))
 
 
+def choice_6():
+    print('Enter size of matrix:')
+    a = matrix_input()
+
+    def minor(a, i, j):
+        m = copy.deepcopy(a)
+        del m[i]
+        for i in range(len(a[0]) - 1):
+            del m[i][j]
+        return m
+
+    def det(a):
+        m = len(a)
+        n = len(a[0])
+        if m != n:
+            return None
+        if n == 1:
+            return a[0][0]
+        signum = 1
+        determinant = 0
+        for j in range(n):
+            determinant += a[0][j] * signum * det(minor(a, 0, j))
+            signum *= -1
+        return determinant
+
+    determinant = det(a)
+    if determinant != 0:
+        if len(a) == 2:
+            ntr_1 = [int(a[1][1]) / determinant, -1 * int(a[0][1]) / determinant]
+            ntr_2 = [-1 * int(a[1][0]) / determinant, int(a[0][0]) / determinant]
+            return ntr_1, ntr_2
+        else:
+            cofactors = []
+            for k in range(len(a)):
+                cofactor_row = []
+                for c in range(len(a[k])):
+                    mino = minor(a, k, c)
+                    cofactor_row.append(((-1) ** (k + c)) * det(mino))
+                cofactors.append(cofactor_row)
+            cofactors = [[cofactors[j][i] for j in range(len(cofactors))] for i in range(len(cofactors[0]))]
+            for k in range(len(cofactors)):
+                for c in range(len(cofactors)):
+                    cofactors[k][c] = cofactors[k][c] / determinant
+            return cofactors
+    else:
+        print("This matrix doesn't have an inverse.")
+
+
 while True:
     print('1. Add matrices')
     print('2. Multiply matrix by a constant')
@@ -157,7 +205,13 @@ while True:
         elif menu_choice == '5':
             choice_5()
         elif menu_choice == '6':
-            continue
+            answer = choice_6()
+            if answer is not None:
+                print("The result is: ")
+                for st in range(len(answer)):
+                    for st_2 in answer[st]:
+                        print(round(st_2, 2), end=' ')
+                    print('')
         elif menu_choice == '0':
             sys.exit(0)
         else:
