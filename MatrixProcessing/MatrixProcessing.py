@@ -205,11 +205,11 @@ while True:
         elif menu_choice == '5':
             choice_5()
         elif menu_choice == '6':
-            answer = choice_6()
-            if answer is not None:
+            answer_2 = choice_6()
+            if answer_2 is not None:
                 print("The result is: ")
-                for st in range(len(answer)):
-                    for st_2 in answer[st]:
+                for st in range(len(answer_2)):
+                    for st_2 in answer_2[st]:
                         print(round(st_2, 2), end=' ')
                     print('')
         elif menu_choice == '0':
