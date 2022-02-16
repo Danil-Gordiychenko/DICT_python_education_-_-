@@ -17,9 +17,9 @@ def level_1(num):
             num -= 1
             equation = f'{random_num_1[0]} {random_op} {random_num_1[1]}'
             print(random_num_1[0], random_op, random_num_1[1])
-            a = eval(equation)
+            expression = eval(equation)
             answer = int(input())
-            if answer == a:
+            if answer == expression:
                 print('Right!')
                 mark += 1
             else:
@@ -68,7 +68,7 @@ while True:
         if final_question == 'yes' or 'YES' or 'y' or 'Yes':
             name = input('What is your name?\n')
             print('The results are saved in "results.txt".')
-            with open('result.txt', 'w') as file:
+            with open('result.txt', 'a+') as file:
                 file.write(f'{name} - RESULT {mark}/5 LEVEL {level}\n')
                 sys.exit(0)
         else:
