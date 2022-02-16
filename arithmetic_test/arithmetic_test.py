@@ -65,7 +65,7 @@ while True:
             break
         print("Your mark is", mark, "/ 5 Would you like to save the result? Enter yes or no.")
         final_question = input()
-        if final_question == 'yes' or 'YES' or 'y' or 'Yes':
+        if final_question == 'yes':
             name = input('What is your name?\n')
             print('The results are saved in "results.txt".')
             with open('result.txt', 'a+') as file:
