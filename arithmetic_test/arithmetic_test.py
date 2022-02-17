@@ -50,26 +50,32 @@ def level_2(num):
             return level_2(num)
 
 
-def level_3(num):
-    pass
-
-
 while True:
     print("Which level do you want? Enter a number:")
     print("1 - simple operations with numbers 2-9")
-    print("2 - integral squares of 11-29")
     level = input()
     while True:
         if level == '1':
             level_1(5)
-        elif level == '2':
-            level_2(5)
-        elif level == '3':
-            level_3(5)
         else:
             print("Incorrect format.")
             break
-        print(f'Your mark is" {mark} / 5 Would you like to save the result? Enter yes or no.')
+        if mark >= 3:
+            ques = input('Do you want to go to the next level?\n')
+            if ques == 'yes':
+                level_2(5)
+                print(f'Your mark is {mark} / 10 Would you like to save the result? Enter yes or no.')
+                final_question = input()
+                if final_question == 'yes':
+                    name = input('What is your name?\n')
+                    print('The results are saved in "results.txt".')
+                    with open('result.txt', 'a') as file:
+                        file.write(f'{name} - RESULT {mark}/10 LEVEL 2\n')
+                        sys.exit(0)
+                else:
+                    sys.exit(0)
+
+        print(f'Your mark is {mark} / 5 Would you like to save the result? Enter yes or no.')
         final_question = input()
         if final_question == 'yes':
             name = input('What is your name?\n')
