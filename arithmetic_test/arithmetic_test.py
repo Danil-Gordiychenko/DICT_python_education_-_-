@@ -47,7 +47,11 @@ def level_2(num):
         except ValueError:
             num += 1
             print('Incorrect format.')
-            return level_1(num)
+            return level_2(num)
+
+
+def level_3(num):
+    pass
 
 
 while True:
@@ -60,15 +64,17 @@ while True:
             level_1(5)
         elif level == '2':
             level_2(5)
+        elif level == '3':
+            level_3(5)
         else:
             print("Incorrect format.")
             break
-        print("Your mark is", mark, "/ 5 Would you like to save the result? Enter yes or no.")
+        print(f'Your mark is" {mark} / 5 Would you like to save the result? Enter yes or no.')
         final_question = input()
         if final_question == 'yes':
             name = input('What is your name?\n')
             print('The results are saved in "results.txt".')
-            with open('result.txt', 'a+') as file:
+            with open('result.txt', 'a') as file:
                 file.write(f'{name} - RESULT {mark}/5 LEVEL {level}\n')
                 sys.exit(0)
         else:
