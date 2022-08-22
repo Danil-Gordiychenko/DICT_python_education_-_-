@@ -3,23 +3,23 @@ from Online_shop_practice import Generator
 
 
 def test_shop():
-    p = Shop('some', 'example', 'danilgordiychenko@gmail.com', '+380672861619')
+    p = Shop('Jame', 'Sanders','+380672861619', 'danilgordiychenko@gmail.com', )
     assert p.name == 'Jame'
     assert p.surname == 'Sanders'
-    assert p.mail == 'danilgordiychenko@gmail.com'
     assert p.phone == '+380672861619'
+    assert p.mail == 'danilgordiychenko@gmail.com'
 
 
 def test_person_full():
-    p = Shop('some', 'example', 'danilgordiychenko@gmail.com', '+380672861619')
+    p = Shop('Jame', 'Sanders','+380672861619', 'danilgordiychenko@gmail.com', )
     assert p.name == 'Jame'
     assert p.surname == 'Sanders'
-    assert p.mail == 'danilgordiychenko@gmail.com'
     assert p.phone == '+380672861619'
+    assert p.mail == 'danilgordiychenko@gmail.com'
 
 
 def test_person_getinfo():
-    p = Shop('Jame', 'Sanders', 'danilgordiychenko@gmail.com', '+380672861619')
+    p = Shop('Jame', 'Sanders', '+380672861619', 'danilgordiychenko@gmail.com')
     assert isinstance(p.get_info(), str)
 
 
