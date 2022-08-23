@@ -1,4 +1,5 @@
 from Practice2.Online_shop_practice import Generator
+from StandartList2 import StandartList2
 from LinkList import LinkList
 from datetime import datetime
 
@@ -13,8 +14,8 @@ print("Генерация 10 000 элементов:\n" + str(timer_stop))
 # Таймер для добавления элементов в конец массива
 timer_start = datetime.utcnow()
 
-# slist = LinkedList()
-slist = LinkList()
+slist = StandartList2()
+# slist = LinkList()
 for shop in gen_10_000:
     slist.add(shop)
 
@@ -24,10 +25,10 @@ print("Добавление 10 000 элементов в конец массив
 # Таймер для добавления элементов в начало массива
 timer_start = datetime.utcnow()
 
-slist = LinkList()
-# slist = LinkedList()
+slist = StandartList2()
+# slist = LinkList()
 for shop in gen_10_000:
-    slist.add(shop,0)
+    slist.add(shop, 0)
 
 timer_stop = datetime.utcnow() - timer_start
 print("Добавление 10 000 новых элементов в начало:\n" + str(timer_stop) + "\tРазмер массива: " + str(slist.size))
@@ -53,7 +54,7 @@ print("Поиск первого элемента:\n" + str(timer_stop) + "\tР�
 # Таймер для поиска элемента
 timer_start = datetime.utcnow()
 
-# res = slist.find(gen_10_000[9999])
+res = slist.find(gen_10_000[9999])
 
 timer_stop = datetime.utcnow() - timer_start
 print("Поиск последнего элемента:\n" + str(timer_stop) + "\tРазмер массива: " + str(slist.size))
@@ -61,7 +62,7 @@ print("Поиск последнего элемента:\n" + str(timer_stop) + 
 # Таймер для поиска элемента по индексу
 timer_start = datetime.utcnow()
 
-# res = slist.get(9999)
+res = slist.get(9999)
 
 timer_stop = datetime.utcnow() - timer_start
 print("Поиск последнего элемента из 10 000 по индексу:\n" + str(timer_stop) + "\tРазмер массива: " + str(slist.size))
@@ -69,8 +70,8 @@ print("Поиск последнего элемента из 10 000 по инд�
 # Таймер для удаления первых элементов
 timer_start = datetime.utcnow()
 
-for Shop in gen_10_000:
-    slist.remove(Shop)
+for shop in gen_10_000:
+    slist.remove(shop)
 
 timer_stop = datetime.utcnow() - timer_start
 print("Удаление 1-го элемента 10 000 раз:\n" + str(timer_stop) + "\tРазмер массива: " + str(slist.size))

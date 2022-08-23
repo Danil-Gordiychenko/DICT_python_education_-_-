@@ -105,14 +105,13 @@ class LinkList(AbstractStructure):
 
 
 if __name__ == "__main__":
+    g = Generator()
 
-    s = Generator()
-
-    p1 = s.generate_single()
-    p2 = s.generate_single()
-    p3 = s.generate_single()
-    p4 = s.generate_single()
-    p5 = s.generate_single()
+    p1 = g.generate_single()
+    p2 = g.generate_single()
+    p3 = g.generate_single()
+    p4 = g.generate_single()
+    p5 = g.generate_single()
     print([p1, p2, p3, p4, p5])
 
     s_list = LinkList()
@@ -121,8 +120,8 @@ if __name__ == "__main__":
     s_list.add(p3)
     s_list.add(p4)
     print(s_list.add(p5, 1))
-    print("insert1: " + str(s_list.insert(p4, 1)))
-    print("insert2: " + str(s_list.insert(p4, 10)))
+    # print("insert1: " + str(s_list.insert(p4, 1)))
+    # print("insert2: " + str(s_list.insert(p4, 10)))
 
     print(s_list.get_all())
     print(s_list.size)
